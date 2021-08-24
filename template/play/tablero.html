@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<div class="container">
+    <h1 class="text-center my-4">
+        <samp class="badge badge-info">
+            Los {{contar_user }} mejores jugadores
+        </samp>
+    </h1>
+
+    <table class="table table-striped table-bodered">
+        <thead>
+            <th>posiciones</th>
+            <th>Usuario</th>
+            <th>Puntaje</th>
+          <tr>
+       <thead>
+        <tbody>
+            {% for user_quiz in usuario_quiz %}
+            <tr>
+                <th>{{forloop.counter}}</th>
+                <th>{{user_quiz.usuario.username}}</th>
+                <th>{{user_quiz.puntaje_total}}</th>
+         
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+            </thead>
+
+
+            </tr>
+        </thead>
+    </table>
+</div>
+
+{% endblock  %}
