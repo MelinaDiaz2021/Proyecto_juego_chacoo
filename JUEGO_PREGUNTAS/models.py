@@ -24,8 +24,8 @@ class ElguirRespuesta(models.Model):
 
     MAXIMO_RESPUESTAS=4
 
-    preguntas=models.ForeignKey (Pregunta,related_name= 'opciones', on_delete=models.CASCADE)
-    correcta=models.BooleanField(verbose_name= 'Es esta la correcta', default=False,null=False)
+    preguntas=models.ForeignKey (Pregunta,on_delete=models.CASCADE,related_name= 'opciones')
+    correcta=models.ForeignKey('Respuesta',on_delete=models.RESTRICT,related_name='responde a')
     texto=models.TextField(verbose_name= 'Texto de la respuesta')
 
     def __str__ (self):
